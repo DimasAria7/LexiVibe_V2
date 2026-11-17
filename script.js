@@ -36,7 +36,7 @@ const UNITS_DATA = [
         tag: "ICEBREAKERS",
         tip: "Use a friendly greeting + shared context question.",
         phrases: [
-          "Hi! Mind if I join you? I'm [Name], by the way.",
+          "Hi! Mind if I join you? I'm Adit, by the way.",
           "Great session today—what did you think of the main topic?"
         ]
       },
@@ -70,9 +70,9 @@ const UNITS_DATA = [
     ],
     dialogueTitle: "Campus Workshop Mixer",
     dialogue: [
-      { speaker: "ARIF", text: "Hi! Great turnout today. What brought you to this workshop?" },
-      { speaker: "SINTA", text: "I wanted more speaking practice. From my perspective, real practice helps most." },
-      { speaker: "ARIF", text: "Agreed! I need to join my group now—great chatting with you!" }
+      { speaker: "ADIT", text: "Hi! Great turnout today. What brought you to this workshop?" },
+      { speaker: "KARINA", text: "I wanted more speaking practice. From my perspective, real practice helps most." },
+      { speaker: "ADIT", text: "Agreed! I need to join my group now—great chatting with you!" }
     ],
     practicePrompt: "Write 2 lines: open a chat with a classmate and share one opinion."
   },
@@ -158,9 +158,9 @@ const UNITS_DATA = [
     ],
     dialogueTitle: "How Study Habits Changed",
     dialogue: [
-      { speaker: "DINA", text: "Group projects feel way smoother than in our first semester." },
-      { speaker: "REZA", text: "True! We used to meet only in the library, whereas now we co-edit online first." },
-      { speaker: "DINA", text: "And as a result, our live discussions are much faster." }
+      { speaker: "ARIEL", text: "Group projects feel way smoother than in our first semester." },
+      { speaker: "ADIT", text: "True! We used to meet only in the library, whereas now we co-edit online first." },
+      { speaker: "ARIEL", text: "And as a result, our live discussions are much faster." }
     ],
     practicePrompt: "Compare one habit today with how you used to do it 3 years ago."
   },
@@ -273,7 +273,7 @@ const UNITS_DATA = [
     dialogueTitle: "Team Design Compromise",
     dialogue: [
       { speaker: "ARIEL", text: "I think keeping it simple with less text makes the website easier to read." },
-      { speaker: "DIMS", text: "Good point. To put it simply, we want color energy without walls of text." },
+      { speaker: "KARINA", text: "Good point. To put it simply, we want color energy without walls of text." },
       { speaker: "ARIEL", text: "Yes! Soft color accents + short bullet points works best." }
     ],
     practicePrompt: "Write 1 suggestion using 'Have you considered...' to solve a group disagreement."
@@ -630,7 +630,7 @@ const QUIZ_DECKS = {
     {
       clue: "[UNIT 10] Which news report line covers When, Where, and Why?",
       options: [
-        "Mind if I join you? I'm Arif.",
+        "Mind if I join you? I'm Adit.",
         "At 9 AM today in the Student Center, Group 11 launched the app because students needed speaking practice.",
         "Have you considered splitting the slides?",
         "We used to rely on printed books."
@@ -872,7 +872,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupVocabFilters();
   renderUnitsLab();
   setupUnitControls();
-  setupUnitPracticeQuiz();
   renderIdiomsAndUpgrades();
   setupIdiomFilters();
   renderStories();
@@ -1007,6 +1006,22 @@ function setupNavigation() {
 // ==========================================================================
 // Speech Engine
 // ==========================================================================
+let cachedVoices = [];
+
+function refreshVoices() {
+  if ("speechSynthesis" in window) cachedVoices = window.speechSynthesis.getVoices();
+}
+
+if ("speechSynthesis" in window) {
+  refreshVoices();
+  window.speechSynthesis.addEventListener("voiceschanged", refreshVoices);
+}
+
+function findVoice(lang) {
+  if (cachedVoices.length === 0) refreshVoices();
+  return cachedVoices.find((v) => v.lang.startsWith(lang)) || null;
+}
+
 function speakText(text, onEndCallback = null) {
   if (!("speechSynthesis" in window)) {
     showToast("AUDIO NOT SUPPORTED");
@@ -1017,8 +1032,7 @@ function speakText(text, onEndCallback = null) {
   utterance.lang = state.accent;
   utterance.rate = state.rate;
 
-  const voices = window.speechSynthesis.getVoices();
-  const matched = voices.find((v) => v.lang.startsWith(state.accent));
+  const matched = findVoice(state.accent);
   if (matched) utterance.voice = matched;
 
   utterance.onend = () => { if (onEndCallback) onEndCallback(); };
@@ -1155,114 +1169,6 @@ function updateProgressStats() {
   document.getElementById("homeMasteredStat").textContent = `${state.masteredIds.length} / ${VOCAB_DATA.length} WORDS`;
 }
 
-
-// Interactive unit practice: short multiple-choice checks for each unit.
-const UNIT_PRACTICE_QUIZZES = {
-  9: [
-    { prompt: "You want to join a conversation at a campus event. Which is the most natural opener?", options: ["Give me your notes.", "Hi! Mind if I join you?", "Why are you here?", "I need to leave now."], answer: 1, feedback: "A friendly greeting and a polite request make a natural conversation opener." },
-    { prompt: "Your classmate shares an interesting opinion. Which follow-up keeps the conversation going?", options: ["That's interesting—what got you into that?", "Okay, goodbye forever.", "You are completely wrong.", "I don't have time for this."], answer: 0, feedback: "An open What/How question invites the other person to say more." }
-  ],
-  10: [
-    { prompt: "Which detail best anchors a news report in time and place?", options: ["It was quite interesting.", "People enjoyed the event.", "At 9 AM outside the main auditorium.", "It happened for some reason."], answer: 2, feedback: "A clear time and location help listeners understand when and where the event happened." },
-    { prompt: "Choose the sentence that explains a reason for an event.", options: ["The event was on Tuesday.", "It succeeded because the team tested three prototypes.", "The event took place in the hall.", "More than 300 students attended."], answer: 1, feedback: "The conjunction 'because' introduces the reason behind the result." }
-  ],
-  11: [
-    { prompt: "Complete the contrast: 'We used to meet in the library, whereas now we ___ online.'", options: ["worked", "are collaborating", "will collaborated", "has collaborate"], answer: 1, feedback: "'Whereas now' contrasts a past habit with a current situation; 'are collaborating' describes the current activity." },
-    { prompt: "Which phrase introduces a trend that is increasing?", options: ["More and more students...", "Once upon a time...", "If I were...", "I sincerely apologize..."], answer: 0, feedback: "'More and more' signals that the number or amount is increasing." }
-  ],
-  12: [
-    { prompt: "Choose the best response to: 'What would you do if a teammate missed a deadline?'", options: ["I will blame them immediately.", "If that happened, I would check in and identify the problem.", "I am checking yesterday.", "I would have went home."], answer: 1, feedback: "The second conditional uses 'If + past form' and 'would + base verb' for an imagined situation." },
-    { prompt: "Which response sounds neutral and solution-focused?", options: ["They're just lazy.", "This is all their fault.", "I'd ask what blocked their progress.", "They never do anything right."], answer: 2, feedback: "Asking about the obstacle avoids blame and focuses on finding a solution." }
-  ],
-  13: [
-    { prompt: "A customer says their delivery is late. Which response shows a sincere apology?", options: ["That's not my problem.", "I sincerely apologize for the delay.", "You should have ordered earlier.", "Calm down."], answer: 1, feedback: "A direct apology acknowledges the problem without making defensive excuses." },
-    { prompt: "Which sentence shows sympathy before offering a solution?", options: ["I completely understand why you're frustrated.", "You are overreacting.", "It was not our fault.", "Read the policy again."], answer: 0, feedback: "Recognizing the other person's frustration validates their feelings before moving to a solution." }
-  ],
-  14: [
-    { prompt: "Which phrase introduces a polite suggestion during a disagreement?", options: ["You must do it my way.", "Have you considered combining both ideas?", "That's a stupid idea.", "I refuse to listen."], answer: 1, feedback: "'Have you considered...?' presents an idea collaboratively rather than demanding agreement." },
-    { prompt: "Which sentence supports an argument with a reason?", options: ["I like it, that's all.", "Do it because I said so.", "I recommend shorter text because readers scan key points quickly.", "Everyone knows I'm right."], answer: 2, feedback: "A clear argument states a recommendation and supports it with a reason." }
-  ]
-};
-
-const unitPracticeProgress = { unit: null, index: 0, score: 0, answered: false, finished: false };
-
-function renderUnitPractice() {
-  const host = document.getElementById("unitPracticeQuiz");
-  if (!host) return;
-  const unit = state.activeUnitNumber;
-  const questions = UNIT_PRACTICE_QUIZZES[unit] || [];
-  if (unitPracticeProgress.unit !== unit) {
-    unitPracticeProgress.unit = unit;
-    unitPracticeProgress.index = 0;
-    unitPracticeProgress.score = 0;
-    unitPracticeProgress.answered = false;
-    unitPracticeProgress.finished = false;
-  }
-  if (unitPracticeProgress.finished) {
-    host.innerHTML = `
-      <div class="unit-practice-result">
-        <strong>ROUND COMPLETE</strong>
-        <p>You scored ${unitPracticeProgress.score} / ${questions.length}.</p>
-        <button type="button" class="brutal-btn-sm bg-yellow" id="unitPracticeRetryBtn">TRY AGAIN</button>
-      </div>`;
-    return;
-  }
-  const q = questions[unitPracticeProgress.index];
-  host.innerHTML = `
-    <div class="unit-practice-meta"><span>QUESTION ${unitPracticeProgress.index + 1} / ${questions.length}</span><span>SCORE: ${unitPracticeProgress.score}</span></div>
-    <div class="unit-practice-track"><span style="width:${((unitPracticeProgress.index + 1) / questions.length) * 100}%"></span></div>
-    <h3 class="unit-practice-question">${q.prompt}</h3>
-    <div class="unit-practice-options">
-      ${q.options.map((option, i) => `<button type="button" class="unit-practice-option" data-practice-option="${i}" ${unitPracticeProgress.answered ? "disabled" : ""}>${String.fromCharCode(65+i)}. ${option}</button>`).join("")}
-    </div>
-    <div id="unitPracticeFeedback" class="unit-practice-feedback ${unitPracticeProgress.answered ? "show" : ""}">${unitPracticeProgress.answered ? q.feedback : ""}</div>
-    ${unitPracticeProgress.answered ? `<button type="button" class="brutal-btn-sm bg-yellow" id="unitPracticeNextBtn">${unitPracticeProgress.index === questions.length - 1 ? "SEE RESULT" : "NEXT QUESTION →"}</button>` : ""}
-  `;
-  if (unitPracticeProgress.answered) {
-    host.querySelectorAll(".unit-practice-option").forEach((btn, i) => {
-      if (i === q.answer) btn.classList.add("is-correct");
-      else if (i === unitPracticeProgress.lastChoice) btn.classList.add("is-wrong");
-    });
-  }
-}
-
-function setupUnitPracticeQuiz() {
-  const host = document.getElementById("unitPracticeQuiz");
-  if (!host) return;
-  host.addEventListener("click", (event) => {
-    const optionBtn = event.target.closest("[data-practice-option]");
-    if (optionBtn && !unitPracticeProgress.answered) {
-      const questions = UNIT_PRACTICE_QUIZZES[state.activeUnitNumber] || [];
-      const q = questions[unitPracticeProgress.index];
-      const choice = Number(optionBtn.dataset.practiceOption);
-      unitPracticeProgress.answered = true;
-      unitPracticeProgress.lastChoice = choice;
-      if (choice === q.answer) unitPracticeProgress.score++;
-      renderUnitPractice();
-      const feedback = document.getElementById("unitPracticeFeedback");
-      if (feedback) feedback.textContent = `${choice === q.answer ? "Correct! " : "Not quite. "}${q.feedback}`;
-      return;
-    }
-    if (event.target.closest("#unitPracticeNextBtn")) {
-      const questions = UNIT_PRACTICE_QUIZZES[state.activeUnitNumber] || [];
-      if (unitPracticeProgress.index < questions.length - 1) {
-        unitPracticeProgress.index++;
-        unitPracticeProgress.answered = false;
-      } else {
-        unitPracticeProgress.finished = true;
-      }
-      renderUnitPractice();
-    }
-    if (event.target.closest("#unitPracticeRetryBtn")) {
-      unitPracticeProgress.index = 0;
-      unitPracticeProgress.score = 0;
-      unitPracticeProgress.answered = false;
-      unitPracticeProgress.finished = false;
-      renderUnitPractice();
-    }
-  });
-}
-
 // ==========================================================================
 // Page 02: Units 09–14 Speaking Lab (Clean, Scannable & Searchable)
 // ==========================================================================
@@ -1287,6 +1193,7 @@ function renderUnitsLab() {
           u.title.toLowerCase().includes(q) ||
           u.shortLabel.toLowerCase().includes(q) ||
           `unit ${unitNumStr}`.includes(q) ||
+          `unit ${u.unit}`.includes(q) ||
           sub.title.toLowerCase().includes(q) ||
           sub.tag.toLowerCase().includes(q) ||
           sub.tip.toLowerCase().includes(q) ||
@@ -1353,6 +1260,8 @@ function renderUnitsLab() {
       <button
         type="button"
         class="unit-tab-btn ${isActive ? u.colorClass : ""}"
+        role="tab"
+        aria-selected="${isActive}"
         onclick="selectUnit(${u.unit})"
       >
         <span class="unit-tab-num">UNIT ${numStr}</span>
@@ -1409,7 +1318,10 @@ function renderUnitsLab() {
     )
     .join("");
 
-  renderUnitPractice();
+  document.getElementById("unitPracticePrompt").textContent = current.practicePrompt;
+  const savedPractice = localStorage.getItem(`lexivibe_u6_${current.unit}`) || "";
+  document.getElementById("unitPracticeInput").value = savedPractice;
+  document.getElementById("unitPracticeSavedMsg").innerHTML = "";
 }
 
 function selectUnit(unitNum) {
@@ -1430,6 +1342,12 @@ function setupUnitControls() {
     speakText(fullDialogue);
   });
 
+  document.getElementById("saveUnitPracticeBtn").addEventListener("click", () => {
+    const current = UNITS_DATA.find((u) => u.unit === state.activeUnitNumber) || UNITS_DATA[0];
+    const text = document.getElementById("unitPracticeInput").value.trim();
+    localStorage.setItem(`lexivibe_u6_${current.unit}`, text);
+    document.getElementById("unitPracticeSavedMsg").innerHTML = `${ICONS.check} <span>Saved!</span>`;
+  });
 }
 
 // ==========================================================================
@@ -1617,7 +1535,6 @@ function openWordModal(wordId) {
   backdrop.classList.remove("hidden");
   document.getElementById("closeModalBtn").focus();
 
-  speakText(entry.word);
 }
 
 function closeWordModal() {
@@ -1625,6 +1542,7 @@ function closeWordModal() {
   if (backdrop.classList.contains("hidden")) return;
 
   backdrop.classList.add("hidden");
+  stopSpeech();
   if (state.lastFocusedElement && typeof state.lastFocusedElement.focus === "function") {
     state.lastFocusedElement.focus();
   }
@@ -1764,7 +1682,7 @@ function handleQuizAnswer(choice, btnEl) {
     if (state.quizMode !== "units") speakText(q.answer);
   }
 
-  state.quizHistory.push({ target: q.answer, isCorrect });
+  state.quizHistory.push({ target: q.answer, chosen: choice, isCorrect });
 
   const feedbackEl = document.getElementById("quizFeedback");
   feedbackEl.className = `feedback-box ${isCorrect ? "correct" : "wrong"}`;
@@ -1825,7 +1743,9 @@ function showQuizResults() {
     .map(
       (item, idx) => `
         <div class="review-row">
-          <span>${String(idx + 1).padStart(2, "0")}. ${item.target}</span>
+          <span>${String(idx + 1).padStart(2, "0")}. ${item.target}${
+            item.isCorrect ? "" : `<br><small>Your answer: ${item.chosen}</small>`
+          }</span>
           <span>${item.isCorrect ? ICONS.check : ICONS.cross}</span>
         </div>
       `

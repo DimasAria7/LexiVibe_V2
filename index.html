@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LEXIVIBE — English &amp; Speaking Lab | Group 11</title>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("lexivibe_v6_theme");
+        if (saved) document.documentElement.setAttribute("data-theme", saved);
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -281,13 +289,24 @@
             <div id="unitDialogueLines" class="dialogue-lines"></div>
           </div>
 
-          <!-- Interactive Quick Practice -->
-          <div id="unitPracticePanel" class="reflection-panel unit-quiz-panel" style="margin-top: 18px;">
+          <!-- Compact Practice Bar -->
+          <div id="unitPracticePanel" class="reflection-panel" style="margin-top: 18px;">
             <div class="practice-header-row">
-              <strong class="inline-icon-label">QUICK PRACTICE</strong>
-              <span class="prompt-inline">Check your understanding with a short interactive quiz.</span>
+              <strong class="inline-icon-label">
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                QUICK PRACTICE:
+              </strong>
+              <span id="unitPracticePrompt" class="prompt-inline"></span>
             </div>
-            <div id="unitPracticeQuiz" aria-live="polite"></div>
+            <div class="inline-practice-row">
+              <input
+                type="text"
+                id="unitPracticeInput"
+                placeholder="Type your 1–2 sentence practice response..."
+              />
+              <button id="saveUnitPracticeBtn" class="brutal-btn-sm bg-yellow">SAVE</button>
+            </div>
+            <span id="unitPracticeSavedMsg" class="saved-status"></span>
           </div>
         </div>
       </article>
@@ -440,7 +459,7 @@
             <span id="quizClueLabel" class="q-label">PROMPT:</span>
             <blockquote id="quizDefinition" class="definition-box"></blockquote>
 
-            <div id="quizOptions" class="options-stack" role="radiogroup"></div>
+            <div id="quizOptions" class="options-stack" role="group" aria-label="Answer options"></div>
 
             <div id="quizFeedback" class="feedback-box hidden"></div>
 
