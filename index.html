@@ -3,32 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LEXIVIBE — Brutalist English Lab</title>
+  <title>LEXIVIBE — English &amp; Speaking Lab | Group 11</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- ==================== TOP RETRO OS NAVBAR ==================== -->
+  <!-- ==================== TOP NAVBAR ==================== -->
   <header class="os-navbar">
     <div class="container nav-flex">
       <a href="#home" class="brand-box" data-nav="home">
-        <span class="stamp-circle">L</span>
-        <span class="stamp-circle">V</span>
-        <span class="brand-name">LEXIVIBE_LAB</span>
+        <span class="stamp-circle bg-yellow">L</span>
+        <span class="stamp-circle bg-sky">V</span>
+        <div class="brand-stack">
+          <span class="brand-name">LEXIVIBE</span>
+          <span class="brand-sub">GROUP 11 LAB</span>
+        </div>
       </a>
 
       <nav class="desktop-nav" aria-label="Main Navigation">
-        <button class="nav-tab active" data-nav="home">(00) INDEX</button>
-        <button class="nav-tab" data-nav="words">(01) RARE WORDS</button>
-        <button class="nav-tab" data-nav="stories">(02) STORIES</button>
-        <button class="nav-tab" data-nav="quiz">(03) QUIZ</button>
+        <button class="nav-tab active" data-nav="home">HOME</button>
+        <button class="nav-tab" data-nav="words">WORDS</button>
+        <button class="nav-tab" data-nav="units">UNITS 09–14</button>
+        <button class="nav-tab" data-nav="idioms">IDIOMS</button>
+        <button class="nav-tab" data-nav="stories">STORIES</button>
+        <button class="nav-tab" data-nav="quiz">QUIZ</button>
       </nav>
 
       <div class="nav-right">
-        <div class="status-badge" title="Words Mastered">
-          <span class="blink-dot"></span>
-          <span id="navMasteryCount">0/10</span>
+        <div class="status-badge bg-mint" title="Words Mastered">
+          <span class="status-dot"></span>
+          <span id="navMasteryCount">0/16</span>
         </div>
-        <button id="themeToggle" class="brutal-btn-sm theme-btn" aria-label="Toggle Light or Dark Theme">
+        <button id="themeToggle" class="brutal-btn-sm" aria-label="Toggle Theme">
           <span id="themeLabel">DARK</span>
         </button>
       </div>
@@ -38,153 +43,135 @@
   <!-- ==================== MAIN WORKSPACE ==================== -->
   <main class="container workspace">
 
-    <!-- ==================== PAGE 00: INDEX / HOME ==================== -->
+    <!-- ==================== PAGE 00: HOME ==================== -->
     <section id="page-home" class="page active" aria-labelledby="hero-headline">
       <div class="hero-layout">
-        <!-- Left Swiss Typographic Poster Block -->
         <div class="poster-block">
           <div class="poster-meta-top">
-            <span class="tag-pill">SWISS / BRUTALIST EDITION</span>
-            <span class="code-label">[SYS.2026 // HELVETICA]</span>
+            <span class="tag-pill bg-yellow">GROUP 11 · ENGLISH LAB</span>
           </div>
 
+          <p class="hero-kicker">SPEAKING &amp; VOCABULARY STUDIO</p>
           <h1 id="hero-headline" class="mega-headline">
-            SPEAK<br />
-            BEYOND<br />
-            <span class="highlight-block">BASIC</span><br />
-            ENGLISH*
+            SPEAK BEYOND<br />
+            <span class="highlight-block bg-yellow">BASIC</span> ENGLISH.
           </h1>
 
-          <div class="crosshair-divider" aria-hidden="true">
-            <span>✕</span>
-            <div class="line"></div>
-            <span>✕</span>
-          </div>
-
-          <div class="poster-bottom-grid">
-            <div class="stamps-pair">
-              <div class="big-stamp">E</div>
-              <div class="big-stamp">N</div>
-            </div>
-            <p class="poster-lead">
-              Stop overusing <strong>"very happy"</strong> or <strong>"good smell"</strong>.
-              Master rare, expressive English words through native US/UK audio pronunciation,
-              contextual personal stories, and definition-matching drills.
-            </p>
-          </div>
+          <p class="poster-lead">
+            Build confidence through practical speaking, expressive vocabulary,
+            and everyday conversations.
+          </p>
 
           <div class="hero-actions">
-            <button class="brutal-btn btn-teal" data-nav="words">
-              01. EXPLORE WORDS →
+            <button class="brutal-btn bg-yellow hero-primary" data-nav="units">
+              EXPLORE UNITS 09–14 <span aria-hidden="true">→</span>
             </button>
-            <button class="brutal-btn btn-amber" data-nav="quiz">
-              03. START QUIZ
-            </button>
+            <button class="brutal-btn bg-sky" data-nav="words">EXPLORE 16 WORDS</button>
+            <button class="brutal-btn hero-quiz-btn" data-nav="quiz">TAKE A QUICK QUIZ</button>
           </div>
 
-          <!-- Technical Footer Strip (Inspired by Swiss Reference) -->
           <div class="tech-strip">
             <div>
-              <span class="tech-k">TYPEFACE</span>
-              <span class="tech-v">HELVETICA NEUE</span>
+              <span class="tech-k">LEARNING PATH</span>
+              <span class="tech-v">6 SPEAKING UNITS</span>
             </div>
             <div>
-              <span class="tech-k">MASTERED</span>
-              <span class="tech-v" id="homeMasteredStat">0 / 10 WORDS</span>
+              <span class="tech-k">VOCABULARY</span>
+              <span class="tech-v">16 EXPRESSIVE WORDS</span>
             </div>
             <div>
-              <span class="tech-k">BEST QUIZ</span>
-              <span class="tech-v" id="homeBestQuizStat">NOT YET</span>
+              <span class="tech-k">YOUR PROGRESS</span>
+              <span class="tech-v" id="homeMasteredStat">0 / 16 MASTERED</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Retro OS Window: Featured Word -->
-        <aside class="os-window wotd-window" aria-label="Featured Expressive Word">
-          <div class="os-titlebar bg-teal">
-            <div class="os-dots">
-              <span></span><span></span><span></span>
+        <aside class="os-window wotd-window" aria-label="Featured Word">
+          <div class="os-titlebar bg-sky">
+            <div class="os-dots"><span></span><span></span><span></span></div>
+            <span class="os-title">WORD SPOTLIGHT</span>
+            <div class="quote-bar-actions">
+              <button id="spotlightSpeakBtn" class="mini-audio-btn">
+                <svg class="ui-icon-xs" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                LISTEN
+              </button>
+              <button id="spotlightShuffleBtn" class="mini-audio-btn" title="Next Word" aria-label="Next word">
+                <svg class="ui-icon-xs" viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+              </button>
             </div>
-            <span class="os-title">FEATURED_WORD.EXE</span>
-            <button class="mini-audio-btn" data-speak="Petrichor">🔊 LISTEN</button>
           </div>
 
           <div class="os-body">
             <div class="wotd-top-row">
-              <span class="tag-pill">NOUN // ATMOSPHERE</span>
-              <span class="ipa-tag">/ˈpet.rɪ.kɔːr/</span>
+              <span id="spotlightCat" class="tag-pill bg-yellow">NOUN // NATURE</span>
+              <span id="spotlightIpa" class="ipa-tag">/ˈpet.rɪ.kɔːr/</span>
             </div>
-
-            <h2 class="wotd-display">PETRICHOR</h2>
-
-            <p class="wotd-definition">
-              The pleasant, earthy scent produced when rain falls on dry soil after a long warm spell.
-            </p>
-
+            <h2 id="spotlightWord" class="wotd-display">PETRICHOR</h2>
+            <p id="spotlightDef" class="wotd-definition"></p>
             <div class="upgrade-box">
-              <div class="upgrade-old">✕ BASIC: "The nice smell after rain"</div>
-              <div class="upgrade-new">✓ EXPRESSIVE: "The air was filled with fresh <strong>petrichor</strong>."</div>
+              <div id="spotlightOld" class="upgrade-old"></div>
+              <div id="spotlightNew" class="upgrade-new"></div>
             </div>
-
-            <div class="hatch-bar" aria-hidden="true"></div>
           </div>
         </aside>
       </div>
 
-      <!-- 3 Modules Directory -->
-      <div class="section-banner">
-        <span class="sec-num">(MODULES)</span>
-        <h2>THREE INTERACTIVE LEARNING STAGES_</h2>
+  <!-- ==================== DAILY QUOTE ==================== -->
+  <section class="quote-banner-wrap" aria-label="Daily Quote">
+    <div class="quote-strip">
+        <span class="tag-pill bg-coral">QUOTE</span>
+        <p id="randomQuoteText" class="quote-text"></p>
+        <div class="quote-actions">
+          <span id="randomQuoteAuthor" class="quote-author"></span>
+          <button id="speakQuoteBtn" class="icon-btn bg-sky" title="Listen" aria-label="Listen to quote">
+            <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+          </button>
+          <button id="newQuoteBtn" class="icon-btn bg-yellow" title="New Quote" aria-label="New quote">
+            <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+          </button>
+        </div>
+    </div>
+  </section>
+
+      <div class="home-section-heading">
+        <div>
+          <span class="section-eyebrow">YOUR LEARNING PATH</span>
+          <h2>Speaking modules</h2>
+        </div>
+        <span class="section-count">UNITS 09–14</span>
       </div>
 
-      <div class="modules-grid">
-        <article class="os-window module-card" data-nav="words">
-          <div class="os-titlebar bg-paper">
-            <div class="os-dots"><span></span><span></span><span></span></div>
-            <span class="os-title">STAGE_01</span>
-          </div>
-          <div class="os-body">
-            <span class="big-index">(01)</span>
-            <h3>RARE WORDS &amp; AUDIO</h3>
-            <p>
-              10 expressive English words with IPA phonetics, US/UK voice synthesis,
-              speed toggles (1.0x / 0.7x), and mastery tracking.
-            </p>
-            <span class="card-cta">OPEN VOCAB LAB →</span>
-          </div>
-        </article>
-
-        <article class="os-window module-card" data-nav="stories">
-          <div class="os-titlebar bg-teal">
-            <div class="os-dots"><span></span><span></span><span></span></div>
-            <span class="os-title">STAGE_02</span>
-          </div>
-          <div class="os-body">
-            <span class="big-index">(02)</span>
-            <h3>PERSONAL STORIES</h3>
-            <p>
-              3 relatable short narratives using rare words in real context. Tap any
-              highlighted word for instant definitions &amp; audio.
-            </p>
-            <span class="card-cta">READ STORIES →</span>
-          </div>
-        </article>
-
-        <article class="os-window module-card" data-nav="quiz">
-          <div class="os-titlebar bg-amber">
-            <div class="os-dots"><span></span><span></span><span></span></div>
-            <span class="os-title">STAGE_03</span>
-          </div>
-          <div class="os-body">
-            <span class="big-index">(03)</span>
-            <h3>MATCHING QUIZ [A–E]</h3>
-            <p>
-              Match each English definition to the exact expressive word across 10
-              multiple-choice challenges with instant feedback.
-            </p>
-            <span class="card-cta">LAUNCH QUIZ →</span>
-          </div>
-        </article>
+      <div class="units-overview-grid">
+        <button class="unit-mini-card" data-open-unit="9">
+          <span class="unit-num bg-yellow">UNIT 09</span>
+          <strong>Social Conversations</strong>
+          <span>Open, maintain, close &amp; share opinions</span>
+        </button>
+        <button class="unit-mini-card" data-open-unit="10">
+          <span class="unit-num bg-mint">UNIT 10</span>
+          <strong>Story &amp; News Report</strong>
+          <span>Retell events &amp; report the 5W+1H</span>
+        </button>
+        <button class="unit-mini-card" data-open-unit="11">
+          <span class="unit-num bg-sky">UNIT 11</span>
+          <strong>Recent Changes</strong>
+          <span>Compare past habits with present life</span>
+        </button>
+        <button class="unit-mini-card" data-open-unit="12">
+          <span class="unit-num bg-coral">UNIT 12</span>
+          <strong>Job Interview Hypotheticals</strong>
+          <span>Handle “what if” scenarios</span>
+        </button>
+        <button class="unit-mini-card" data-open-unit="13">
+          <span class="unit-num bg-lilac">UNIT 13</span>
+          <strong>Dealing with Complaints</strong>
+          <span>Apologize sincerely and show empathy</span>
+        </button>
+        <button class="unit-mini-card" data-open-unit="14">
+          <span class="unit-num bg-peach">UNIT 14</span>
+          <strong>Conflict Resolution</strong>
+          <span>Give advice and explain clearly</span>
+        </button>
       </div>
     </section>
 
@@ -192,80 +179,204 @@
     <section id="page-words" class="page" aria-labelledby="words-heading">
       <div class="page-top-banner">
         <div>
-          <span class="tag-pill">(01) VOCABULARY ARCHIVE</span>
-          <h1 id="words-heading" class="page-headline">RARE &amp; EXPRESSIVE WORDS*</h1>
+          <span class="tag-pill bg-sky">VOCABULARY // 16 WORDS</span>
+          <h1 id="words-heading" class="page-headline">RARE &amp; EXPRESSIVE WORDS</h1>
         </div>
 
-        <!-- Speech Controls -->
         <div class="control-cluster" role="group" aria-label="Voice Settings">
           <div class="seg-group">
-            <span class="seg-label">ACCENT:</span>
+            <span class="seg-label">ACCENT</span>
             <button class="seg-btn active" data-accent="en-US">US</button>
             <button class="seg-btn" data-accent="en-GB">UK</button>
           </div>
           <div class="seg-group">
-            <span class="seg-label">SPEED:</span>
+            <span class="seg-label">SPEED</span>
             <button class="seg-btn active" data-rate="1">1.0X</button>
             <button class="seg-btn" data-rate="0.72">0.7X</button>
           </div>
         </div>
       </div>
 
-      <!-- Search & Filter Bar -->
       <div class="toolbar-row">
         <div class="search-box">
-          <span class="search-prefix">FIND_</span>
+          <span class="search-prefix bg-yellow">FIND</span>
           <input
             type="search"
             id="wordSearchInput"
-            placeholder="Type word, meaning, or basic phrase..."
+            placeholder="Search word or meaning..."
             aria-label="Search vocabulary"
           />
         </div>
 
         <div class="filter-pills" id="categoryPills">
-          <button class="cat-pill active" data-cat="All">ALL (10)</button>
-          <button class="cat-pill" data-cat="Emotion & Mind">EMOTION &amp; MIND</button>
+          <button class="cat-pill active" data-cat="All">ALL (16)</button>
+          <button class="cat-pill" data-cat="Emotion & Mind">EMOTION</button>
           <button class="cat-pill" data-cat="Nature & Atmosphere">NATURE</button>
           <button class="cat-pill" data-cat="Character & Style">CHARACTER</button>
+          <button class="cat-pill" data-cat="Time & Society">TIME</button>
+          <button class="cat-pill" data-cat="Mastered">MASTERED</button>
         </div>
       </div>
 
-      <!-- Vocabulary Cards Grid -->
       <div id="vocabGrid" class="vocab-grid"></div>
     </section>
 
-    <!-- ==================== PAGE 02: PERSONAL STORIES ==================== -->
-    <section id="page-stories" class="page" aria-labelledby="stories-heading">
+    <!-- ==================== PAGE 02: UNITS 09–14 SPEAKING LAB ==================== -->
+    <section id="page-units" class="page" aria-labelledby="units-heading">
       <div class="page-top-banner">
         <div>
-          <span class="tag-pill">(02) CONTEXTUAL READING</span>
-          <h1 id="stories-heading" class="page-headline">PERSONAL EXPERIENCES_</h1>
+          <span class="tag-pill bg-yellow">SPEAKING SYLLABUS // 09–14</span>
+          <h1 id="units-heading" class="page-headline">COMMUNICATION LAB</h1>
         </div>
         <p class="banner-note">
-          CLICK ANY <span class="demo-chip">HIGHLIGHTED WORD</span> IN THE TEXT TO INSPECT &amp; HEAR IT.
+          Pick one unit tab or search across all speaking formulas and example phrases.
         </p>
       </div>
 
-      <!-- Story Selector Tabs -->
+      <!-- Search Bar for Units -->
+      <div class="toolbar-row">
+        <div class="search-box">
+          <span class="search-prefix bg-yellow">FIND</span>
+          <input
+            type="search"
+            id="unitSearchInput"
+            placeholder="Search phrases, skills, or units..."
+            aria-label="Search speaking units and phrases"
+          />
+        </div>
+      </div>
+
+      <!-- Color-Coded Unit Tabs -->
+      <div class="unit-selector-bar" id="unitTabsBar" role="tablist" aria-label="Select Unit 09 to 14"></div>
+
+      <!-- Active Unit Card -->
+      <article class="os-window unit-workspace-window">
+        <div id="unitWindowBar" class="os-titlebar bg-yellow">
+          <div class="os-dots"><span></span><span></span><span></span></div>
+          <span id="unitWindowCode" class="os-title">UNIT 09 // SOCIAL SITUATIONS</span>
+          <span id="unitTopicCount" class="os-title">4 KEY SKILLS</span>
+        </div>
+
+        <div class="os-body unit-body-pad">
+          <div class="unit-head-compact">
+            <h2 id="unitTitle" class="unit-main-title"></h2>
+            <p id="unitSummary" class="unit-lead-text"></p>
+          </div>
+
+          <!-- Key Expressions Grid (Clean & Scannable) -->
+          <div id="unitSubtopicsGrid" class="unit-subtopics-grid"></div>
+
+          <!-- Compact Model Dialogue -->
+          <div id="unitDialogueBox" class="dialogue-box">
+            <div class="dialogue-head">
+              <div>
+                <span class="tag-pill bg-mint">QUICK DIALOGUE</span>
+                <h3 id="unitDialogueTitle" class="dialogue-title"></h3>
+              </div>
+              <button id="playUnitDialogueBtn" class="brutal-btn-sm bg-sky">
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                LISTEN
+              </button>
+            </div>
+            <div id="unitDialogueLines" class="dialogue-lines"></div>
+          </div>
+
+          <!-- Interactive Quick Practice -->
+          <div id="unitPracticePanel" class="reflection-panel unit-quiz-panel" style="margin-top: 18px;">
+            <div class="practice-header-row">
+              <strong class="inline-icon-label">QUICK PRACTICE</strong>
+              <span class="prompt-inline">Check your understanding with a short interactive quiz.</span>
+            </div>
+            <div id="unitPracticeQuiz" aria-live="polite"></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ==================== PAGE 03: IDIOMS & UPGRADES ==================== -->
+    <section id="page-idioms" class="page" aria-labelledby="idioms-heading">
+      <div class="page-top-banner">
+        <div>
+          <span class="tag-pill bg-peach">NATIVE EXPRESSIONS</span>
+          <h1 id="idioms-heading" class="page-headline">IDIOMS &amp; UPGRADES</h1>
+        </div>
+        <p class="banner-note">
+          Short, everyday idioms and instant upgrades from textbook English to natural speech.
+        </p>
+      </div>
+
+      <!-- Search Bar for Idioms & Upgrades -->
+      <div class="toolbar-row">
+        <div class="search-box">
+          <span class="search-prefix bg-yellow">FIND</span>
+          <input
+            type="search"
+            id="idiomSearchInput"
+            placeholder="Search idiom, meaning, or phrase..."
+            aria-label="Search idioms and phrase upgrades"
+          />
+        </div>
+      </div>
+
+      <div id="idiomsGrid" class="vocab-grid" style="margin-bottom: 34px;"></div>
+
+      <div class="section-banner">
+        <span class="sec-num bg-mint">UPGRADES</span>
+        <h2>BASIC VS. NATURAL PHRASES</h2>
+      </div>
+
+      <div class="os-window">
+        <div class="os-titlebar bg-mint">
+          <div class="os-dots"><span></span><span></span><span></span></div>
+          <span class="os-title">QUICK PHRASE SWAP</span>
+          <span id="upgradesCountBadge" class="os-title">6 PATTERNS</span>
+        </div>
+        <div class="table-wrap">
+          <table class="brutal-table">
+            <thead>
+              <tr>
+                <th>TOPIC</th>
+                <th>BASIC</th>
+                <th>NATURAL</th>
+                <th>AUDIO</th>
+              </tr>
+            </thead>
+            <tbody id="upgradesTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE 04: SHORT STORIES ==================== -->
+    <section id="page-stories" class="page" aria-labelledby="stories-heading">
+      <div class="page-top-banner">
+        <div>
+          <span class="tag-pill bg-lilac">CONTEXT READING</span>
+          <h1 id="stories-heading" class="page-headline">SHORT STORIES</h1>
+        </div>
+        <p class="banner-note">
+          Tap any <span class="demo-chip bg-yellow">COLORED WORD</span> to see its meaning, origin, and audio.
+        </p>
+      </div>
+
       <div class="story-tabs" id="storyTabs" role="tablist"></div>
 
-      <!-- OS Window Reader -->
       <article class="os-window story-window">
-        <div class="os-titlebar bg-teal">
+        <div class="os-titlebar bg-lilac">
           <div class="os-dots"><span></span><span></span><span></span></div>
-          <span id="storyWindowFile" class="os-title">STORY_01.TXT</span>
-          <span id="storyReadTime" class="os-title">2 MIN READ</span>
+          <span id="storyWindowFile" class="os-title">STORY 01</span>
+          <span id="storyReadTime" class="os-title">1 MIN READ</span>
         </div>
 
         <div class="os-body story-content-pad">
           <div class="story-controls-bar">
-            <span id="storyTag" class="tag-pill">TRAVEL &amp; ATMOSPHERE</span>
+            <span id="storyTag" class="tag-pill bg-yellow">TRAVEL</span>
             <div class="story-btn-group">
-              <button id="fontDecreaseBtn" class="brutal-btn-sm" title="Decrease Text Size">A-</button>
-              <button id="fontIncreaseBtn" class="brutal-btn-sm" title="Increase Text Size">A+</button>
-              <button id="readStoryAloudBtn" class="brutal-btn-sm btn-amber">
-                🔊 READ ALOUD
+              <button id="fontDecreaseBtn" class="brutal-btn-sm" title="Smaller Text">A-</button>
+              <button id="fontIncreaseBtn" class="brutal-btn-sm" title="Larger Text">A+</button>
+              <button id="readStoryAloudBtn" class="brutal-btn-sm bg-sky">
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                READ ALOUD
               </button>
             </div>
           </div>
@@ -275,58 +386,58 @@
 
           <div id="storyBody" class="story-paragraphs"></div>
 
-          <div class="crosshair-divider" aria-hidden="true">
-            <span>✕</span>
-            <div class="line"></div>
-            <span>✕</span>
-          </div>
-
-          <!-- Reflection Box -->
-          <div class="reflection-panel">
-            <h3>✍️ PRACTICE PROMPT_</h3>
-            <p id="storyPrompt" class="prompt-text"></p>
-            <textarea
-              id="reflectionInput"
-              rows="3"
-              placeholder="Write 1–2 sentences using one of the highlighted words above..."
-            ></textarea>
-            <div class="reflection-bottom">
-              <span id="reflectionSavedMsg" class="saved-status"></span>
-              <button id="saveReflectionBtn" class="brutal-btn-sm btn-teal">SAVE NOTE</button>
+          <div class="reflection-panel" style="margin-top: 22px;">
+            <div class="practice-header-row">
+              <strong class="inline-icon-label">
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                TRY IT:
+              </strong>
+              <span id="storyPrompt" class="prompt-inline"></span>
             </div>
+            <div class="inline-practice-row">
+              <input
+                type="text"
+                id="reflectionInput"
+                placeholder="Write 1 sentence using a highlighted word..."
+              />
+              <button id="saveReflectionBtn" class="brutal-btn-sm bg-mint">SAVE</button>
+            </div>
+            <span id="reflectionSavedMsg" class="saved-status"></span>
           </div>
         </div>
       </article>
     </section>
 
-    <!-- ==================== PAGE 03: INTERACTIVE QUIZ ==================== -->
+    <!-- ==================== PAGE 05: QUIZ ==================== -->
     <section id="page-quiz" class="page" aria-labelledby="quiz-heading">
       <div class="page-top-banner">
         <div>
-          <span class="tag-pill">(03) ACTIVE RECALL</span>
-          <h1 id="quiz-heading" class="page-headline">DEFINITION MATCHING]</h1>
+          <span class="tag-pill bg-mint">SELF-CHECK</span>
+          <h1 id="quiz-heading" class="page-headline">PRACTICE QUIZ</h1>
         </div>
-        <p class="banner-note">
-          MATCH EACH DEFINITION TO THE RIGHT WORD FROM OPTIONS <strong>A</strong> TO <strong>E</strong>.
-        </p>
+
+        <div class="seg-group" role="group" aria-label="Select Quiz Deck">
+          <span class="seg-label">TOPIC</span>
+          <button class="seg-btn active" data-quiz-mode="units">UNITS 09–14</button>
+          <button class="seg-btn" data-quiz-mode="words">WORDS</button>
+          <button class="seg-btn" data-quiz-mode="idioms">IDIOMS</button>
+        </div>
       </div>
 
       <div class="os-window quiz-window">
-        <div class="os-titlebar bg-amber">
+        <div class="os-titlebar bg-mint">
           <div class="os-dots"><span></span><span></span><span></span></div>
-          <span id="quizCounter" class="os-title">QUESTION 01 / 10</span>
+          <span id="quizCounter" class="os-title">QUESTION 01 / 12</span>
           <span id="quizScoreBadge" class="os-title">SCORE: 0</span>
         </div>
 
         <div class="os-body quiz-body-pad">
-          <!-- Brutalist Progress Bar -->
           <div class="brutal-progress" aria-hidden="true">
-            <div id="quizProgressBar" class="brutal-progress-fill"></div>
+            <div id="quizProgressBar" class="brutal-progress-fill bg-yellow"></div>
           </div>
 
-          <!-- Question Area -->
           <div id="quizQuestionArea">
-            <span class="q-label">DEFINITION CLUE:</span>
+            <span id="quizClueLabel" class="q-label">PROMPT:</span>
             <blockquote id="quizDefinition" class="definition-box"></blockquote>
 
             <div id="quizOptions" class="options-stack" role="radiogroup"></div>
@@ -334,21 +445,23 @@
             <div id="quizFeedback" class="feedback-box hidden"></div>
 
             <div class="quiz-next-row">
-              <button id="nextQuestionBtn" class="brutal-btn btn-teal hidden">
-                NEXT QUESTION →
+              <button id="nextQuestionBtn" class="brutal-btn bg-yellow hidden">
+                NEXT →
               </button>
             </div>
           </div>
 
-          <!-- Results Area -->
           <div id="quizResultArea" class="results-panel hidden">
-            <div id="resultBadge" class="result-stamp">10/10</div>
-            <h2 id="resultHeading" class="result-title">CHALLENGE COMPLETE</h2>
+            <div id="resultBadge" class="result-stamp bg-yellow">12/12</div>
+            <h2 id="resultHeading" class="result-title">DONE!</h2>
             <p id="resultSummary" class="result-desc"></p>
             <div id="resultReviewList" class="review-list"></div>
             <div class="result-btn-row">
-              <button id="retakeQuizBtn" class="brutal-btn btn-amber">↻ RETAKE QUIZ</button>
-              <button class="brutal-btn btn-teal" data-nav="words">REVIEW WORDS</button>
+              <button id="retakeQuizBtn" class="brutal-btn bg-yellow">
+                <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                RETAKE
+              </button>
+              <button class="brutal-btn bg-sky" data-nav="units">REVIEW UNITS</button>
             </div>
           </div>
         </div>
@@ -356,22 +469,35 @@
     </section>
   </main>
 
-  <!-- ==================== MOBILE BOTTOM DOCK (<840px) ==================== -->
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="container site-footer">
+    <div class="footer-box">
+      <div class="footer-brand">
+        <span class="stamp-circle bg-yellow">11</span>
+        <strong>LEXIVIBE — CREATED BY GROUP 11</strong>
+      </div>
+      <span class="tag-pill bg-sky">ENGLISH COMMUNICATION &amp; VOCABULARY</span>
+    </div>
+  </footer>
+
+  <!-- ==================== MOBILE BOTTOM DOCK (<960px) ==================== -->
   <nav class="mobile-dock" aria-label="Mobile Navigation">
     <button class="dock-btn active" data-nav="home">
-      <span class="dock-num">00</span>
       <span class="dock-txt">HOME</span>
     </button>
     <button class="dock-btn" data-nav="words">
-      <span class="dock-num">01</span>
       <span class="dock-txt">WORDS</span>
     </button>
+    <button class="dock-btn" data-nav="units">
+      <span class="dock-txt">09–14</span>
+    </button>
+    <button class="dock-btn" data-nav="idioms">
+      <span class="dock-txt">IDIOMS</span>
+    </button>
     <button class="dock-btn" data-nav="stories">
-      <span class="dock-num">02</span>
       <span class="dock-txt">STORY</span>
     </button>
     <button class="dock-btn" data-nav="quiz">
-      <span class="dock-num">03</span>
       <span class="dock-txt">QUIZ</span>
     </button>
   </nav>
@@ -379,29 +505,34 @@
   <!-- ==================== WORD INSPECTOR MODAL ==================== -->
   <div id="wordModalBackdrop" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalWordTitle">
     <div class="os-window modal-window">
-      <div class="os-titlebar bg-amber">
+      <div class="os-titlebar bg-yellow">
         <div class="os-dots"><span></span><span></span><span></span></div>
-        <span class="os-title">WORD_INSPECTOR.SYS</span>
-        <button id="closeModalBtn" class="close-x" aria-label="Close">✕</button>
+        <span class="os-title">WORD CARD</span>
+        <button id="closeModalBtn" class="close-x" aria-label="Close modal">
+          <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
       </div>
       <div class="os-body">
-        <span id="modalWordCat" class="tag-pill"></span>
+        <span id="modalWordCat" class="tag-pill bg-sky"></span>
         <h3 id="modalWordTitle" class="modal-word-big"></h3>
         <p id="modalWordIpa" class="modal-ipa-txt"></p>
         <p id="modalWordDef" class="modal-def-txt"></p>
+        <p id="modalWordOrigin" class="modal-origin-txt"></p>
         <div class="modal-ex-panel">
-          <span class="tech-k">CONTEXT EXAMPLE:</span>
           <p id="modalWordEx" class="modal-ex-txt"></p>
         </div>
         <div class="modal-btn-row">
-          <button id="modalSpeakBtn" class="brutal-btn-sm btn-teal">🔊 PRONOUNCE</button>
-          <button id="modalMasterBtn" class="brutal-btn-sm">+ MASTERED</button>
+          <button id="modalSpeakBtn" class="brutal-btn-sm bg-sky">
+            <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+            LISTEN
+          </button>
+          <button id="modalMasterBtn" class="brutal-btn-sm bg-mint">+ MASTERED</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Brutalist Toast -->
+  <!-- Toast -->
   <div id="toast" class="brutal-toast" role="status" aria-live="polite"></div>
 
   <script src="script.js"></script>
