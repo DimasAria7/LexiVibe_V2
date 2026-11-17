@@ -37,7 +37,7 @@ const UNITS_DATA = [
         tip: "Use a friendly greeting + shared context question.",
         phrases: [
           "Hi! Mind if I join you? I'm Adit, by the way.",
-          "Great session today—what did you think of the main topic?"
+          "Great session today. What did you think of the main topic?"
         ]
       },
       {
@@ -45,7 +45,7 @@ const UNITS_DATA = [
         tag: "FOLLOW-UP",
         tip: "Ask open 'What/How' questions to keep momentum.",
         phrases: [
-          "That's interesting—what got you into that field?",
+          "That's interesting. What got you into that field?",
           "Speaking of which, have you tried using it in your project?"
         ]
       },
@@ -55,7 +55,7 @@ const UNITS_DATA = [
         tip: "Thank them + give a clear reason for leaving.",
         phrases: [
           "It was great chatting with you, though I should head to class now.",
-          "Let's stay in touch—feel free to reach out anytime!"
+          "Let's stay in touch. Feel free to reach out anytime!"
         ]
       },
       {
@@ -72,7 +72,7 @@ const UNITS_DATA = [
     dialogue: [
       { speaker: "ADIT", text: "Hi! Great turnout today. What brought you to this workshop?" },
       { speaker: "KARINA", text: "I wanted more speaking practice. From my perspective, real practice helps most." },
-      { speaker: "ADIT", text: "Agreed! I need to join my group now—great chatting with you!" }
+      { speaker: "ADIT", text: "Agreed! I need to join my group now. Great chatting with you!" }
     ],
     practicePrompt: "Write 2 lines: open a chat with a classmate and share one opinion."
   },
@@ -178,7 +178,7 @@ const UNITS_DATA = [
         tip: "Use 'If I were...' + 'I would...' for imagined scenarios.",
         phrases: [
           "If I were faced with a sudden deadline shift, I would reprioritize key tasks first.",
-          "Suppose two teammates disagreed—I would host a quick 5-minute alignment chat."
+          "Suppose two teammates disagreed. I would host a quick 5-minute alignment chat."
         ]
       },
       {
@@ -195,7 +195,7 @@ const UNITS_DATA = [
     dialogue: [
       { speaker: "HR", text: "What would you do if a teammate missed a deadline before a presentation?" },
       { speaker: "CANDIDATE", text: "I would check in without judgment to spot the bottleneck, then split remaining tasks." },
-      { speaker: "HR", text: "Great—calm, fair, and solution-focused." }
+      { speaker: "HR", text: "Great. Calm, fair, and solution-focused." }
     ],
     practicePrompt: "Complete: 'If a teammate fell behind on a group task, I would...'"
   },
@@ -221,7 +221,7 @@ const UNITS_DATA = [
         tag: "EMPATHY FIRST",
         tip: "Validate their frustration before explaining the solution.",
         phrases: [
-          "I completely understand why you're frustrated—I'd feel the same way.",
+          "I completely understand why you're frustrated. I'd feel the same way.",
           "Thank you for flagging this early so we can make it right."
         ]
       }
@@ -511,7 +511,7 @@ const IDIOMS_DATA = [
     tag: "CHAT",
     color: "bg-mint",
     meaning: "Friendly way to ask someone what they're thinking about.",
-    example: "You've been quiet for ten minutes—a penny for your thoughts?"
+    example: "You've been quiet for ten minutes. A penny for your thoughts?"
   },
   {
     idiom: "Cut to the chase",
@@ -532,7 +532,7 @@ const IDIOMS_DATA = [
     tag: "HOPE",
     color: "bg-mint",
     meaning: "Every tough situation still has a positive side.",
-    example: "Missing the bus led me to a great café—every cloud has a silver lining."
+    example: "Missing the bus led me to a great café. Every cloud has a silver lining."
   }
 ];
 
@@ -596,7 +596,7 @@ const STORIES_DATA = [
     readTime: "1 MIN READ",
     prompt: "Write 1 sentence using 'serendipity' or 'nostalgia'.",
     paragraphs: [
-      "Escaping a sudden downpour, I stepped into the {quintessential} second-hand bookshop behind campus. Inside a worn novel, a 1998 postcard slipped out—pure {serendipity}.",
+      "Escaping a sudden downpour, I stepped into the {quintessential} second-hand bookshop behind campus. Inside a worn novel, a 1998 postcard slipped out. It was pure {serendipity}.",
       "Reading that tiny note sparked a warm wave of {nostalgia}, turning an {ephemeral} rainstorm into my favorite memory of the week."
     ]
   }
@@ -608,7 +608,7 @@ const QUIZ_DECKS = {
     {
       clue: "[UNIT 09] Which line politely closes a social conversation?",
       options: [
-        "That's interesting—what got you into that?",
+        "That's interesting. What got you into that?",
         "It was great chatting with you, though I should head to class now. Let's stay in touch!",
         "You won't believe what happened yesterday.",
         "I sincerely apologize for the delay."
@@ -696,12 +696,12 @@ const QUIZ_DECKS = {
     {
       clue: "[UNIT 13] Which phrase shows genuine sympathy during a complaint?",
       options: [
-        "I completely understand why you're frustrated—I'd feel the same way.",
+        "I completely understand why you're frustrated. I'd feel the same way.",
         "That's not really my problem.",
         "If I were you, I wouldn't worry.",
         "Speaking of which, have you seen the schedule?"
       ],
-      answer: "I completely understand why you're frustrated—I'd feel the same way.",
+      answer: "I completely understand why you're frustrated. I'd feel the same way.",
       detail: "UNIT 13: Validates feelings empathetically before fixing the issue."
     },
     {
@@ -743,49 +743,49 @@ const QUIZ_DECKS = {
       clue: "The pleasant, earthy smell after rain falls on dry ground.",
       options: ["luminous", "petrichor", "serene", "sonder"],
       answer: "petrichor",
-      detail: "PETRICHOR (/ˈpet.rɪ.kɔːr/) — Earthy post-rain scent."
+      detail: "PETRICHOR (/ˈpet.rɪ.kɔːr/): Earthy post-rain scent."
     },
     {
       clue: "Realizing every stranger has a life as complex as your own.",
       options: ["sonder", "wanderlust", "audacious", "mellifluous"],
       answer: "sonder",
-      detail: "SONDER (/ˈsɒn.dər/) — Deep awareness of others' inner lives."
+      detail: "SONDER (/ˈsɒn.dər/): Deep awareness of others' inner lives."
     },
     {
       clue: "Too great or beautiful to be described in words.",
       options: ["serene", "ineffable", "petrichor", "audacious"],
       answer: "ineffable",
-      detail: "INEFFABLE (/ɪnˈef.ə.bəl/) — Beyond words."
+      detail: "INEFFABLE (/ɪnˈef.ə.bəl/): Beyond words."
     },
     {
       clue: "A voice or sound that is sweet, smooth, and pleasant to hear.",
       options: ["enigmatic", "euphoria", "mellifluous", "sonder"],
       answer: "mellifluous",
-      detail: "MELLIFLUOUS (/məˈlɪf.lu.əs/) — Flowing like honey."
+      detail: "MELLIFLUOUS (/məˈlɪf.lu.əs/): Flowing like honey."
     },
     {
       clue: "Lasting for only a very short time; fleeting.",
       options: ["resilient", "ephemeral", "quintessential", "luminous"],
       answer: "ephemeral",
-      detail: "EPHEMERAL (/ɪˈfem.ər.əl/) — Short-lived."
+      detail: "EPHEMERAL (/ɪˈfem.ər.əl/): Short-lived."
     },
     {
       clue: "Finding valuable or happy things by pure lucky chance.",
       options: ["nostalgia", "serendipity", "wanderlust", "sonder"],
       answer: "serendipity",
-      detail: "SERENDIPITY (/ˌser.ənˈdɪp.ə.ti/) — Happy accidental discovery."
+      detail: "SERENDIPITY (/ˌser.ənˈdɪp.ə.ti/): Happy accidental discovery."
     },
     {
       clue: "Fluent, persuasive, and expressive in speaking or writing.",
       options: ["enigmatic", "eloquent", "serene", "ephemeral"],
       answer: "eloquent",
-      detail: "ELOQUENT (/ˈel.ə.kwənt/) — Persuasive and well-spoken."
+      detail: "ELOQUENT (/ˈel.ə.kwənt/): Persuasive and well-spoken."
     },
     {
       clue: "Able to recover quickly from setbacks or tough conditions.",
       options: ["resilient", "luminous", "nostalgia", "petrichor"],
       answer: "resilient",
-      detail: "RESILIENT (/rɪˈzɪl.jənt/) — Bouncing back strong."
+      detail: "RESILIENT (/rɪˈzɪl.jənt/): Bouncing back strong."
     }
   ],
   idioms: [
@@ -793,37 +793,37 @@ const QUIZ_DECKS = {
       clue: "Force yourself to do something tough you've been delaying.",
       options: ["Cut to the chase", "Bite the bullet", "Walking on air", "Once in a blue moon"],
       answer: "Bite the bullet",
-      detail: "BITE THE BULLET — Facing a tough task head-on."
+      detail: "BITE THE BULLET: Facing a tough task head-on."
     },
     {
       clue: "Study or work late into the night.",
       options: ["Burn the midnight oil", "A penny for your thoughts", "Read between the lines", "Bite the bullet"],
       answer: "Burn the midnight oil",
-      detail: "BURN THE MIDNIGHT OIL — Working late at night."
+      detail: "BURN THE MIDNIGHT OIL: Working late at night."
     },
     {
       clue: "Understand the hidden meaning behind someone's words.",
       options: ["Once in a blue moon", "Walking on air", "Read between the lines", "Cut to the chase"],
       answer: "Read between the lines",
-      detail: "READ BETWEEN THE LINES — Catching implicit meaning."
+      detail: "READ BETWEEN THE LINES: Catching implicit meaning."
     },
     {
       clue: "Something that happens very rarely.",
       options: ["Once in a blue moon", "Burn the midnight oil", "A penny for your thoughts", "Cut to the chase"],
       answer: "Once in a blue moon",
-      detail: "ONCE IN A BLUE MOON — Almost never."
+      detail: "ONCE IN A BLUE MOON: Almost never."
     },
     {
       clue: "Get straight to the main point without wasting time.",
       options: ["Once in a blue moon", "Cut to the chase", "Walking on air", "Bite the bullet"],
       answer: "Cut to the chase",
-      detail: "CUT TO THE CHASE — Skipping fluff."
+      detail: "CUT TO THE CHASE: Skipping fluff."
     },
     {
       clue: "Feeling extraordinarily happy after great news.",
       options: ["Walking on air", "Burn the midnight oil", "Read between the lines", "Cut to the chase"],
       answer: "Walking on air",
-      detail: "WALKING ON AIR — Overjoyed."
+      detail: "WALKING ON AIR: Overjoyed."
     }
   ]
 };
@@ -848,6 +848,7 @@ const state = {
   storyFontSize: 1.04,
   isReadingStory: false,
   quizMode: "units",
+  quizUnit: "all",
   quizIndex: 0,
   quizScore: 0,
   quizAnswered: false,
@@ -911,7 +912,7 @@ function pickRandomQuoteOnOpen() {
   sessionStorage.setItem("lexivibe_last_q6", String(nextIdx));
   const q = QUOTES_DATA[state.currentQuoteIndex];
   document.getElementById("randomQuoteText").textContent = `“${q.text}”`;
-  document.getElementById("randomQuoteAuthor").textContent = `— ${q.author}`;
+  document.getElementById("randomQuoteAuthor").textContent = q.author;
 }
 
 function setupQuoteControls() {
@@ -921,7 +922,7 @@ function setupQuoteControls() {
   });
   document.getElementById("speakQuoteBtn").addEventListener("click", () => {
     const q = QUOTES_DATA[state.currentQuoteIndex];
-    speakText(`${q.text} — ${q.author}`);
+    speakText(`${q.text} By ${q.author}.`);
   });
 }
 
@@ -1611,7 +1612,10 @@ function setupModalControls() {
 // Page 05: Quiz
 // ==========================================================================
 function getCurrentDeck() {
-  return QUIZ_DECKS[state.quizMode];
+  const deck = QUIZ_DECKS[state.quizMode];
+  if (state.quizMode !== "units" || state.quizUnit === "all") return deck;
+  const prefix = `[UNIT ${state.quizUnit}]`;
+  return deck.filter((q) => q.clue.startsWith(prefix));
 }
 
 function renderQuizQuestion() {
@@ -1699,7 +1703,20 @@ function setupQuizControls() {
   document.querySelectorAll("[data-quiz-mode]").forEach((btn) => {
     btn.addEventListener("click", () => {
       state.quizMode = btn.dataset.quizMode;
+      document.getElementById("quizUnitGroup").classList.toggle("hidden", state.quizMode !== "units");
       document.querySelectorAll("[data-quiz-mode]").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      state.quizIndex = 0;
+      state.quizScore = 0;
+      state.quizHistory = [];
+      renderQuizQuestion();
+    });
+  });
+
+  document.querySelectorAll("[data-quiz-unit]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      state.quizUnit = btn.dataset.quizUnit;
+      document.querySelectorAll("[data-quiz-unit]").forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       state.quizIndex = 0;
       state.quizScore = 0;
